@@ -4,18 +4,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import modelandviewtwo.bookstore.domain.BookRepository;
+import modelandviewtwo.bookstore.domain.CategoryRepository;
+import modelandviewtwo.bookstore.domain.Book;
 
 @Controller
 public class BookController {
+
+@Autowired
+private BookRepository bookrepository;
 
 @GetMapping("/index")
 public String getInformations(Model model) {
 model.addAttribute("book", new Book());
 return "bookinformations";
 }
-
-@Autowired
-private BookRepository bookrepository;
 
 @RequestMapping("/booklist")
 public String bookList(Model model) {

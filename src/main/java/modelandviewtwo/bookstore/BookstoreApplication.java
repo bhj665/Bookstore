@@ -2,35 +2,29 @@ package modelandviewtwo.bookstore;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import modelandviewtwo.bookstore.web.BookController;
 import org.springframework.boot.CommandLineRunner;
+import modelandviewtwo.bookstore.domain.BookRepository;
+import modelandviewtwo.bookstore.domain.CategoryRepository;
+import modelandviewtwo.bookstore.domain.Book;
+import modelandviewtwo.bookstore.domain.Category;
 
 @SpringBootApplication
 public class BookstoreApplication {
-
+private static final Logger log = LoggerFactory.getLogger(BookstoreApplication.class);
 public static void main(String[] args) {
 SpringApplication.run(BookstoreApplication.class, args);
 }
 
 @Bean
-public CommandLineRunner bookdata(BookRepository bookrepository) {
+public CommandLineRunner bookdata(BookRepository bookrepository, CategoryRepository categoryrepository) {
 return (args) -> {
-Book b1 = new Book("A Farewell to Arms", "Ernest Hemingway", 1929, "1232323-21", "20.60 €");
-Book b2 = new Book("Animal Farm", "George Orwell", 1945, "2212345-5", "14.95 €");
-bookrepository.save(b1);
-bookrepository.save(b2);
-}
-}
-
-@Bean
-public CommandLineRunner categorydata(CategoryRepository categoryrepository) {
-return (args) -> {
-Category c1 = new Category(1, "Scifi");
-Category c2 = new Category(2, "Comic");
-Category c3 = new Category(3, "Fiction");
-categoryrepository.save(c1);
-categoryrepository.save(c2);
-categoryrepository.save(c3);
+log.info("Save more information of book");
+categoryrepository.save(new Category(1, "Scifi"));
+categoryrepository.save(new Category(2, "Comic"));
+categoryrepository.save(new Category(3, "Fiction"));
+bookrepository.save(new Book("A Farewell to Arms", "Ernest Hemingway", 1929, "1232323-21", "20.60 €", CategoryRepository.findByCategoryid().get(0)));
+bookrepository.save(new Book("Animal Farm", "George Orwell", 1945, "2212345-5", "14.95 €", CategoryRepository.findByCategoryid(3).get(0)));
+log.info("More information of book has been saved");
 }
 }
 

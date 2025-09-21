@@ -5,5 +5,5 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 public interface BookRepository extends CrudRepository<Book, Integer> {
-List<Book> findByPublicationYear(int publicationYear);
+List<Book> findByAuthor(String author);
 }
