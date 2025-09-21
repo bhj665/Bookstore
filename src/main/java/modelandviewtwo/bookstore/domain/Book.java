@@ -11,13 +11,13 @@ private String title;
 private String author;
 private int publicationYear;
 private String isbn;
-private double price;
-public Book(String title, String author, int publicationYear, String isbn, double price) {
-this.title = title;
-this.author = author;
-this.publicationYear = publicationYear;
-this.isbn = isbn;
-this.price = price;
+private String price;
+public Book(String title, String author, int publicationYear, String isbn, String price) {
+this.title = null;
+this.author = null;
+this.publicationYear = 0;
+this.isbn = null;
+this.price = null;
 }
 public String getTitle() {
 return title;
@@ -43,10 +43,10 @@ return isbn;
 public void setIsbn(String isbn) {
 this.isbn = isbn;
 }
-public double getPrice() {
+public String getPrice() {
 return price;
 }
-public void setPrice(double price) {
+public void setPrice(String price) {
 this.price = price;
 }
 @Override

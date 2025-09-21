@@ -15,12 +15,21 @@ return "bookinformations";
 }
 
 @Autowired
-private BookRepository repository;
+private BookRepository bookrepository;
 
 @RequestMapping("/booklist")
 public String bookList(Model model) {
-model.addAttribute("books", repository.findAll());
+model.addAttribute("books", bookrepository.findAll());
 return "booklist";
+}
+
+@Autowired
+private CategoryRepository categoryrepository;
+
+@RequestMapping("/categorylist")
+public String categoryList(Model model) {
+model.addAttribute("categories", categoryrepository.findAll());
+return "categorylist";
 }
 
 }

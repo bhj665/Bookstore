@@ -4,6 +4,6 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface BookRepository extends CrudRepository<Book, Integer> {
-List<Book> findByPublicationYear(int publicationYear);
+public interface CategoryRepository extends CrudRepository<Category, Integer> {
+List<Category> findByCategoryid(int categoryid);
 }
