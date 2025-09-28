@@ -1,10 +1,13 @@
 package modelandviewtwo.bookstore.domain;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import modelandviewtwo.bookstore.domain.Category;
 @Entity
 public class Book {
 @Id
@@ -16,6 +19,7 @@ private String isbn;
 private String price;
 @ManyToOne
 @JoinColumn(name = "categoryid")
+@JsonIgnoreProperties("book")
 private Category category;
 public Book(String title, String author, int publicationYear, String isbn, String price, Category category) {
 this.title = null;
