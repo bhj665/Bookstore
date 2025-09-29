@@ -12,7 +12,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
-public class AllBooksController {
+public class BookRestController {
 
 @Autowired
 private BookRepository bookrepository;
