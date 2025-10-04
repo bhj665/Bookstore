@@ -16,6 +16,10 @@ private String name;
 @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
 private List<Book> books;
 public Category(int categoryid, String name) {
+this.categoryid = categoryid;
+this.name = name;
+}
+public Category() {
 this.categoryid = 0;
 this.name = null;
 }

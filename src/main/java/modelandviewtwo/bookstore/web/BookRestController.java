@@ -23,8 +23,8 @@ return (List<Book>) bookrepository.findAll();
 }
 
 @RequestMapping(value="/bookids", method = RequestMethod.GET)
-public @ResponseBody Optional<Book> findBookRest(@PathVariable("id") int dId) {
-return bookrepository.findById(dId);
+public @ResponseBody Optional<Book> findBooksRest(@PathVariable("isbn") String dIsbn) {
+return bookrepository.findByIsbn(dIsbn);
 }
 
 }
