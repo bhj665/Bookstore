@@ -49,7 +49,7 @@ public class Book {
     public void setId(Long id) {
         this.id = id;
     }
-    
+
     public String getTitle() {
         return title;
     }
@@ -102,6 +102,4 @@ public class Book {
     public String toString() {
         return this.title + this.author + this.publicationYear + this.isbn + this.price + this.category;
     }
-
-
 }
